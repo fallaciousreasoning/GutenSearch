@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GutenSearch", "GutenSearch\GutenSearch.csproj", "{3460A0AA-5B14-42D2-B889-47E71B4C400A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutendex", "Gutendex\Gutendex.csproj", "{C6ACDFB1-FFEA-4767-A759-D19F17DFF6A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3460A0AA-5B14-42D2-B889-47E71B4C400A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3460A0AA-5B14-42D2-B889-47E71B4C400A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3460A0AA-5B14-42D2-B889-47E71B4C400A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3460A0AA-5B14-42D2-B889-47E71B4C400A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6ACDFB1-FFEA-4767-A759-D19F17DFF6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6ACDFB1-FFEA-4767-A759-D19F17DFF6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6ACDFB1-FFEA-4767-A759-D19F17DFF6A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6ACDFB1-FFEA-4767-A759-D19F17DFF6A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38EA631C-4DB6-454F-B77A-604903160E1F}
+	EndGlobalSection
+EndGlobal
