@@ -12,7 +12,30 @@
     </Window.DataContext>
     <Grid>
         <TextBox Margin="10,10,10,0" TextWrapping="Wrap" Text="{Binding Search, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,33,0,0" ItemsSource="{Binding Results}"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,33,10,10" ItemsSource="{Binding Results}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Title}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>by</TextBlock>
+                            <ItemsControl ItemsSource="{Binding Authors}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}" Margin="2,0,0,0"/>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
     </Grid>
 </Window>
