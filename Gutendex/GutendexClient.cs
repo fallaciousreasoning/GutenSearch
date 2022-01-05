@@ -8,7 +8,7 @@ namespace Gutendex
 		private const string BaseUrl = "https://gutendex.com";
 		private readonly HttpClient httpClient = new HttpClient();
 
-		public async Task<PaginatedResult?> GetBooks(string? search=null, int[]? ids=null, int? authorYearStart=null, int? authorYearEnd=null, string[]? languages=null, bool? copyright=null, string? mimetype=null, string topic=null)
+		public async Task<PaginatedResult?> GetBooks(string? search=null, int[]? ids=null, int? authorYearStart=null, int? authorYearEnd=null, string[]? languages=null, bool? copyright=null, string? mimetype=null, string? topic=null, CancellationToken? cancellationToken=null)
 		{
 			var queryBuilder = new QueryBuilder();
 			if (search != null) queryBuilder.Add("search", search);
@@ -21,14 +21,14 @@ namespace Gutendex
 			if (topic != null) queryBuilder.Add("topic", topic);
 
 			var url = new Uri($"{BaseUrl}/books?{queryBuilder.ToString}");
-			var text = await httpClient.GetStringAsync(url);
+			var text = await httpClient.GetStringAsync(url, cancellationToken ?? new CancellationToken());
 
 			return JsonConvert.DeserializeObject<PaginatedResult>(text);
 		}
 
-		public async Task<Book?> GetBook(int id)
+		public async Task<Book?> GetBook(int id, CancellationToken? cancellationToken=null)
 		{
-			var result = await GetBooks(ids: new[] { id });
+			var result = await GetBooks(ids: new[] { id }, cancellationToken: cancellationToken);
 			return result?.Results.FirstOrDefault();
 		}
 	}
