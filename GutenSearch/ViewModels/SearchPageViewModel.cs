@@ -1,4 +1,6 @@
 ﻿using Gutendex;
+using GutenSearch.Utils;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -22,7 +24,7 @@ namespace GutenSearch.ViewModels
 			set
 			{
 				search = value;
-				_ = UpdateResults();
+				DebouncedUpdateResults();
 			}
 		}
 		public List<Book> Results
@@ -34,6 +36,13 @@ namespace GutenSearch.ViewModels
 				OnPropertyChange();
 			}
 		}
+
+		public SearchPageViewModel()
+		{
+			DebouncedUpdateResults = Debouncer.Debounce(UpdateResults, 500);
+		}
+
+		public Action DebouncedUpdateResults;
 		public async Task UpdateResults()
 		{
 			if (cts != null)
