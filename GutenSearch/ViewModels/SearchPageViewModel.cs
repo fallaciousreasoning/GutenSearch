@@ -42,7 +42,7 @@ namespace GutenSearch.ViewModels
 			cts = new CancellationTokenSource();
 			try
 			{
-				var result = await client.GetBooks(Search, cancellationToken: cts.Token);
+				var result = await Task.Run(() => client.GetBooks(Search, cancellationToken: cts.Token));
 				Results = result?.Results.ToList() ?? new List<Book>();
 			}
 			catch (TaskCanceledException e)

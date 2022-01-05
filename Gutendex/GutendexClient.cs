@@ -20,7 +20,7 @@ namespace Gutendex
 			if (mimetype != null) queryBuilder.Add("mime_type", mimetype);
 			if (topic != null) queryBuilder.Add("topic", topic);
 
-			var url = new Uri($"{BaseUrl}/books?{queryBuilder.ToString}");
+			var url = new Uri($"{BaseUrl}/books{queryBuilder.ToQueryString()}");
 			var text = await httpClient.GetStringAsync(url, cancellationToken ?? new CancellationToken());
 
 			return JsonConvert.DeserializeObject<PaginatedResult>(text);
